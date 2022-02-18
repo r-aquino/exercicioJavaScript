@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<input id="inserir">
+<br><br>
+<button onclick="incluirI()">Incluir na Primeira Posição</button>
+<br><br>
+<button onclick="incluirF()">Incluir na Última Posição</button>
+<br><br><br><br>
+<button onclick="excluirI()">Excluir Primeira Posição</button>
+<br><br>
+<button onclick="excluirF()">Excluir Última Posição</button>
+<br><br><br><br>
+<button onclick="posicaoS()">Substituir</button>
+<p>Esse nome:</p><input id="sai"><p>Por:</p><input id="entra">
+
+<br><br><br><br>
+<div>Utilizando o splice() adicione um elemento na posição 3</div>
+<p>Novo nome para a posição</p><input id="entra2">
+<button onclick="splice1()">Adicionar Posição 3</button>
+
+<br><br><br><br>
+<p>Utilizando o splice() substitua o elemento da posição 2</p>
+<p>Novo nome para a posição 2</p><input id="entra3">
+<button onclick="splice2()">Substituir Posição 2</button>
+<br><br><br><br>
+</body>
+
+<script>
+    lista = ["Rafael", "Leo", "Bruna", "Caio", "Danilo", "Maria"]
+    console.log(lista)
+function incluirI(){
+    lista.unshift(document.getElementById("inserir").value)
+   console.log(lista)
+}
+
+function incluirF(){
+    lista.push(document.getElementById("inserir").value)
+    console.log(lista)
+}
+function excluirI(){
+    lista.shift()
+    console.log(lista)
+}
+function excluirF(){
+    lista.pop()
+    console.log(lista)
+}
+
+function posicaoS(){
+    for (let index = 0; index < lista.length; index++) {
+        if (document.getElementById("sai").value == lista[index]) {
+            lista[index] = document.getElementById("entra").value;
+        };
+    }
+    console.log(lista)
+}
+
+function splice1(){
+    lista.splice(3,0, document.getElementById("entra2").value)
+    // lista[3] = document.getElementById("entra2").value
+    console.log(lista)
+}
+
+function splice2(){
+    lista.splice(2,1,document.getElementById("entra3").value)
+    console.log(lista)
+}
+
+</script>
+
+</html>
